@@ -1,0 +1,99 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+build/
+dist/
+wheels/
+*.egg-info
+*.egg
+*.whl
+.eggs/
+
+# ========================
+# Virtual Environments
+# ========================
+.venv/
+venv/
+env/
+.python-version
+
+# ========================
+# Jupyter Notebook
+# ========================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+**/.ipynb_checkpoints/
+
+# ========================
+# Data (fichiers volumineux)
+# ========================
+*.parquet
+*.csv
+*.xlsx
+*.xls
+*.json
+*.db
+*.sqlite
+*.sql
+!requirements.txt
+
+# ========================
+# ML Models (fichiers lourds)
+# ========================
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.onnx
+*.pt
+*.pth
+models/
+
+# ========================
+# IDE & Editors
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+
+# ========================
+# Environnement & Secrets
+# ========================
+.env
+.env.*
+*.key
+*.pem
+
+# ========================
+# Logs & Cache
+# ========================
+*.log
+logs/
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# ========================
+# Node (pour le dossier web/)
+# ========================
+node_modules/
+.next/
+.nuxt/
