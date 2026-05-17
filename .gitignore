@@ -31,15 +31,15 @@ env/
 # ========================
 # Data (fichiers volumineux)
 # ========================
-*.parquet
-*.csv
-*.xlsx
-*.xls
-*.json
-*.db
-*.sqlite
-*.sql
-!requirements.txt
+# *.parquet
+# *.csv
+# *.xlsx
+# *.xls
+# *.json
+# *.db
+# *.sqlite
+# *.sql
+# !requirements.txt
 
 # ========================
 # ML Models (fichiers lourds)
@@ -97,3 +97,8 @@ logs/
 node_modules/
 .next/
 .nuxt/
+
+# ========================
+# Tasks
+# ========================
+tasks/

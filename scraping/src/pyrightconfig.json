@@ -1,0 +1,9 @@
+{
+    "executionEnvironments": [
+        {
+            "root": "."
+        }
+    ],
+    "reportMissingImports": true,
+    "typeCheckingMode": "basic"
+}
