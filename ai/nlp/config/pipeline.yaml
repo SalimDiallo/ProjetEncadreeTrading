@@ -1,0 +1,47 @@
+# Configuration centrale du pipeline (surchargeable en CLI)
+
+pipeline:
+  sources: [news, reddit, twitter, edgar]
+  model: auto
+  strategy: threshold
+  freq: "1D"
+  start_date: "2023-01-01"
+  end_date: "2026-12-31"
+  ticker: "CL=F"
+  buy_threshold: 0.05
+  sell_threshold: -0.05
+  smooth_window: 3
+  max_per_source: 30
+  transaction_cost: 0.001
+  allow_short: true
+  save_data: true
+  plot: true
+
+aggregation:
+  weight_by_confidence: true
+  weight_by_oil_density: true
+  weight_by_source: true
+  source_weights:
+    default: 1.0
+    edgar: 1.4
+    yahoo_finance: 1.2
+    reuters: 1.15
+    eia: 1.25
+    oilprice: 1.1
+    news: 1.05
+    reddit: 0.85
+    twitter: 0.75
+    mock: 0.5
+
+backtest:
+  signal_lag: 1
+  position_sizing: binary
+  walk_forward_splits: 3
+
+ingestion:
+  allow_mock: true
+  min_text_length: 20
+  filter_oil_keywords: true
+
+evaluation:
+  gold_path: tests/fixtures/sentiment_gold.csv
