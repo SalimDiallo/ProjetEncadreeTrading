@@ -1,0 +1,19 @@
+# =============================================================
+# Web Dashboard — Streamlit
+# Compatible avec le projet projetTrading (pyproject.toml)
+# =============================================================
+
+# Framework
+streamlit>=1.30.0
+
+# Données — déjà dans pyproject.toml du projet, listées pour autonomie
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=14.0.0
+
+# Visualisation
+plotly>=5.18.0
+
+# Tests
+pytest>=7.4.0
+pytest-cov>=4.1.0

@@ -1,0 +1,111 @@
+# =============================================================
+# docker-compose.yml — Petrol Trading Platform
+# =============================================================
+# Permet de lancer tout le projet avec une seule commande.
+#
+# Commandes principales :
+#   docker compose up dashboard       # Lance Streamlit
+#   docker compose up jupyter         # Lance Jupyter Lab
+#   docker compose run --rm test      # Lance les tests pytest
+#   docker compose run --rm shell     # Ouvre un shell bash dans le conteneur
+# =============================================================
+
+services:
+
+  # -----------------------------------------------------------
+  # Dashboard Streamlit (service principal)
+  # -----------------------------------------------------------
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: petrol-trading:latest
+    container_name: petrol-dashboard
+    ports:
+      - "8501:8501"   # Streamlit
+    volumes:
+      # Mount du code source → les changements sont reflétés sans rebuild
+      - .:/workspace
+    working_dir: /workspace
+    command: >
+      streamlit run web/app.py
+      --server.port=8501
+      --server.address=0.0.0.0
+      --server.headless=true
+    environment:
+      - PYTHONPATH=/workspace
+    restart: unless-stopped
+
+  # -----------------------------------------------------------
+  # Jupyter Lab (pour le notebook ML)
+  # -----------------------------------------------------------
+  jupyter:
+    image: petrol-trading:latest
+    container_name: petrol-jupyter
+    depends_on:
+      - dashboard
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: >
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+    environment:
+      - PYTHONPATH=/workspace
+
+  # -----------------------------------------------------------
+  # Service pour lancer les tests (one-shot)
+  # -----------------------------------------------------------
+  test:
+    image: petrol-trading:latest
+    depends_on:
+      - dashboard
+    volumes:
+      - .:/workspace
+    working_dir: /workspace/web
+    command: pytest -v --cov=utils --cov-report=term-missing
+    environment:
+      - PYTHONPATH=/workspace
+    profiles:
+      - test    # Ne se lance pas avec "docker compose up"
+
+  # -----------------------------------------------------------
+  # Service shell interactif (pour debug, installations, etc.)
+  # -----------------------------------------------------------
+  shell:
+    image: petrol-trading:latest
+    depends_on:
+      - dashboard
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    environment:
+      - PYTHONPATH=/workspace
+    profiles:
+      - shell
+
+  # -----------------------------------------------------------
+  # Service pour exécuter le pipeline de scraping
+  # -----------------------------------------------------------
+  scraping:
+    image: petrol-trading:latest
+    depends_on:
+      - dashboard
+    volumes:
+      - .:/workspace
+    working_dir: /workspace/scraping/src
+    command: python main.py
+    environment:
+      - PYTHONPATH=/workspace
+    profiles:
+      - scraping

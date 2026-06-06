@@ -1,0 +1,47 @@
+# =============================================================
+# .dockerignore — Exclut les fichiers inutiles du contexte Docker
+# =============================================================
+# Réduit la taille de l'image et accélère le build.
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environnements virtuels
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Données brutes (volumineuses, à ne pas copier)
+scraping/src/data/raw/*.json
+
+# Documentation
+docs/
+
+# Builds
+build/
+dist/
+*.egg

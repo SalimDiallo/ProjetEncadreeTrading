@@ -1,0 +1,56 @@
+{
+    "name": "Petrol Trading Platform",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "dashboard",
+    "workspaceFolder": "/workspace",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                "charliermarsh.ruff",
+                "tamasfe.even-better-toml",
+                "yzhang.markdown-all-in-one",
+                "GrapeCity.gc-excelviewer"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.terminal.activateEnvironment": false,
+                "python.testing.pytestEnabled": true,
+                "python.testing.pytestArgs": [
+                    "web/tests"
+                ],
+                "editor.formatOnSave": false,
+                "files.exclude": {
+                    "**/__pycache__": true,
+                    "**/.pytest_cache": true,
+                    "**/*.pyc": true
+                },
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+
+    "forwardPorts": [8501, 8888],
+    "portsAttributes": {
+        "8501": {
+            "label": "Streamlit Dashboard",
+            "onAutoForward": "notify"
+        },
+        "8888": {
+            "label": "Jupyter Lab",
+            "onAutoForward": "silent"
+        }
+    },
+
+    "postCreateCommand": "echo '✅ Conteneur prêt ! Lance: streamlit run web/app.py'",
+
+    "remoteUser": "root"
+}
