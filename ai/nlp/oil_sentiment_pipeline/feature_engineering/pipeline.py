@@ -260,8 +260,8 @@ if __name__ == "__main__":
         records = [
             {"text_clean": "opec cut production barrel crude bullish", "text_normalized": "opec_organization cut production barrel crude bullish", "oil_density": 0.33, "date": "2024-03-15T08:00:00Z", "source": "twitter_mock"},
             {"text_clean": "wti crude drops weak demand bearish inventory", "text_normalized": "west_texas_intermediate crude drops weak demand bearish inventory", "oil_density": 0.28, "date": "2024-03-14T14:30:00Z", "source": "reddit_mock"},
-            {"text_clean": "brent crude rallies opec discipline supply tight", "text_normalized": "brent crude rallies opec_organization discipline supply tight", "oil_density": 0.40, "date": "2024-03-13T10:00:00Z", "source": "reuters"},
-            {"text_clean": "goldman sachs raises brent forecast bullish energy", "text_normalized": "goldman sachs raises brent forecast bullish energy", "oil_density": 0.22, "date": "2024-03-12T09:00:00Z", "source": "yahoo_finance"},
+            {"text_clean": "wti crude rallies opec discipline supply tight", "text_normalized": "wti crude rallies opec_organization discipline supply tight", "oil_density": 0.40, "date": "2024-03-13T10:00:00Z", "source": "reuters"},
+            {"text_clean": "goldman sachs raises wti forecast bullish energy", "text_normalized": "goldman sachs raises wti forecast bullish energy", "oil_density": 0.22, "date": "2024-03-12T09:00:00Z", "source": "yahoo_finance"},
             {"text_clean": "china demand recovery slow crude bearish", "text_normalized": "china demand recovery slow crude bearish", "oil_density": 0.25, "date": "2024-03-11T11:00:00Z", "source": "bloomberg"},
         ]
 

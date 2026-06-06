@@ -99,7 +99,7 @@ class IngestionConfig:
             "crude oil lang:en -is:retweet",
             "WTI oil price lang:en -is:retweet",
             "OPEC production lang:en -is:retweet",
-            "Brent crude lang:en -is:retweet",
+            "WTI crude lang:en -is:retweet",
             "#OilMarket lang:en -is:retweet",
             "#OOTT lang:en -is:retweet",
         ]

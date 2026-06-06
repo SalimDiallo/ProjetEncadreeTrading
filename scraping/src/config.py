@@ -21,10 +21,8 @@ EIA_BASE_URL = "https://api.eia.gov/v2/petroleum/pri/spt/data/"
 
 # Petroleum Series IDs (EIA v2)
 # RWTC: WTI Spot Price
-# RBRTE: Brent Spot Price
 ASSETS = {
     "WTI": "RWTC",
-    "BRENT": "RBRTE"
 }
 
 # --- Default Parameters ---

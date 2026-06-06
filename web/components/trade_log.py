@@ -9,7 +9,7 @@ import pandas as pd
 
 def render_trade_log(trades: pd.DataFrame):
     """Affiche le tableau des trades fermés."""
-    st.subheader("📋 Journal des trades")
+    st.subheader("Journal des trades")
 
     if trades.empty:
         st.info("Aucun trade exécuté sur la période sélectionnée.")
@@ -52,3 +52,11 @@ def render_trade_log(trades: pd.DataFrame):
         with col3:
             winning = (trades["pnl"] > 0).sum() if "pnl" in trades.columns else 0
             st.metric("Trades gagnants", f"{winning} / {len(trades)}")
+
+    # Ventilation des sorties (rend visible l'effet du stop-loss / take-profit)
+    if "exit_reason" in trades.columns:
+        counts = trades["exit_reason"].value_counts()
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Sorties sur signal", int(counts.get("Signal", 0)))
+        c2.metric("Stop-loss déclenchés", int(counts.get("Stop-loss", 0)))
+        c3.metric("Take-profit déclenchés", int(counts.get("Take-profit", 0)))

@@ -3,7 +3,7 @@ import pandas as pd
 from typing import Optional
 
 class PetrolPriceCollector:
-    """Fetches daily petrol (WTI/Brent) prices from EIA API v2."""
+    """Fetches daily petrol (WTI) prices from EIA API v2."""
     
     BASE_URL = "https://api.eia.gov/v2/petroleum/pri/spt/data/"
 

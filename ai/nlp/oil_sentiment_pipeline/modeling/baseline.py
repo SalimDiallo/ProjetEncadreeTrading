@@ -344,7 +344,7 @@ if __name__ == "__main__":
     mock_records = [
         {"tokens": ["opec", "cut", "production", "barrel", "crude", "bullish", "rally"], "text_clean": "opec cut production barrel crude bullish rally", "date": "2024-03-15", "source": "mock"},
         {"tokens": ["wti", "crude", "drop", "weak", "demand", "bearish", "selloff"],     "text_clean": "wti crude drop weak demand bearish selloff",     "date": "2024-03-14", "source": "mock"},
-        {"tokens": ["brent", "stable", "market", "neutral", "wait"],                     "text_clean": "brent stable market neutral wait",               "date": "2024-03-13", "source": "mock"},
+        {"tokens": ["wti", "stable", "market", "neutral", "wait"],                     "text_clean": "wti stable market neutral wait",               "date": "2024-03-13", "source": "mock"},
         {"tokens": ["opec", "discipline", "supply", "tight", "bullish", "surge"],        "text_clean": "opec discipline supply tight bullish surge",     "date": "2024-03-12", "source": "mock"},
         {"tokens": ["inventory", "build", "crude", "bearish", "glut", "decline"],        "text_clean": "inventory build crude bearish glut decline",     "date": "2024-03-11", "source": "mock"},
         {"tokens": ["not", "bullish", "outlook", "very", "weak", "demand"],              "text_clean": "not bullish outlook very weak demand",           "date": "2024-03-10", "source": "mock"},

@@ -317,7 +317,7 @@ if __name__ == "__main__":
         texts = [
             "OPEC cuts production crude oil bullish market rally",
             "WTI crude drops weak demand bearish inventory build",
-            "Brent crude stable geopolitical tensions offset weak demand",
+            "WTI crude stable geopolitical tensions offset weak demand",
             "Shale production growth bearish long term oil supply",
             "Saudi Arabia confirms output discipline OPEC plus bullish",
         ]

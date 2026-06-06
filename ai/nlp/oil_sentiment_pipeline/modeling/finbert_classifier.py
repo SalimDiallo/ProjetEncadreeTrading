@@ -386,8 +386,8 @@ if __name__ == "__main__":
     texts = [
         "OPEC+ agrees to cut production by 1M bbl/day. Crude oil market expected to tighten significantly.",
         "WTI crude drops below $75 on weak US jobs data and rising inventory builds.",
-        "Brent crude oil prices remain stable as supply and demand remain balanced.",
-        "Goldman Sachs raises Brent forecast to $95/barrel, bullish on energy sector.",
+        "WTI crude oil prices remain stable as supply and demand remain balanced.",
+        "Goldman Sachs raises WTI forecast to $95/barrel, bullish on energy sector.",
         "China demand recovery slower than expected — bearish signal for crude oil markets.",
         "Not bullish on oil prices despite OPEC cuts due to weak global growth outlook.",
     ]

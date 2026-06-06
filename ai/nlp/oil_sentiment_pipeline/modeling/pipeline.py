@@ -280,8 +280,8 @@ if __name__ == "__main__":
         records = [
             {"text_clean": "opec cut production barrel crude bullish rally",     "tokens": ["opec", "cut", "production", "barrel", "crude", "bullish", "rally"],       "date": "2024-03-15T08:00:00Z", "source": "twitter"},
             {"text_clean": "wti crude drop weak demand bearish inventory build", "tokens": ["wti", "crude", "drop", "weak", "demand", "bearish", "inventory", "build"], "date": "2024-03-14T14:00:00Z", "source": "reddit"},
-            {"text_clean": "brent crude stable market balanced supply demand",   "tokens": ["brent", "crude", "stable", "market", "balanced", "supply", "demand"],      "date": "2024-03-13T10:00:00Z", "source": "reuters"},
-            {"text_clean": "goldman raises brent forecast bullish energy sector","tokens": ["goldman", "raise", "brent", "forecast", "bullish", "energy", "sector"],    "date": "2024-03-12T09:00:00Z", "source": "bloomberg"},
+            {"text_clean": "wti crude stable market balanced supply demand",   "tokens": ["wti", "crude", "stable", "market", "balanced", "supply", "demand"],      "date": "2024-03-13T10:00:00Z", "source": "reuters"},
+            {"text_clean": "goldman raises wti forecast bullish energy sector","tokens": ["goldman", "raise", "wti", "forecast", "bullish", "energy", "sector"],    "date": "2024-03-12T09:00:00Z", "source": "bloomberg"},
             {"text_clean": "china demand recovery slow crude bearish outlook",   "tokens": ["china", "demand", "recovery", "slow", "crude", "bearish", "outlook"],      "date": "2024-03-11T11:00:00Z", "source": "yahoo"},
         ]
 

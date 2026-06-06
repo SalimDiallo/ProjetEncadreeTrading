@@ -27,8 +27,8 @@ projetTrading/
 ├── ai/                              # 🤖 Intelligence Artificielle
 │   ├── main.py                      #    Point d'entrée AI
 │   ├── ml/                          #    Machine Learning
-│   │   ├── model_training.ipynb     #    Notebook backtesting (RF, XGBoost)
-│   │   ├── model_trainingV1.ipynb   #    Version 1 du notebook
+│   │   ├── model_training.ipynb     #    Notebook ML (RF, XGBoost + NLP, régularisés)
+│   │   ├── export_signals.py        #    Export des signaux ML pour le dashboard
 │   │   └── indicateurs_techniques.md#    Guide des indicateurs techniques
 │   └── nlp/                         # 📰 Traitement du Langage Naturel
 │       ├── run.py                   #    Point d'entrée de la pipeline NLP

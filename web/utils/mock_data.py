@@ -75,25 +75,6 @@ def mock_sentiment(asset: str, seed: int = 7) -> pd.DataFrame:
     })
 
 
-def mock_recommendation_reasons(signal: str) -> list[str]:
-    """Raisons factices pour la recommandation finale."""
-    if signal == "BUY":
-        return [
-            "📈 RSI à 35 — sortie de zone de survente",
-            "📊 Croisement haussier MACD (golden cross)",
-            "🤖 Random Forest prédit hausse à J+1",
-            "📰 Sentiment positif des news (+0.42)",
-        ]
-    elif signal == "SELL":
-        return [
-            "📉 RSI à 78 — zone de surachat",
-            "📊 Divergence baissière sur le MACD",
-            "🤖 XGBoost prédit baisse à J+1",
-            "📰 Sentiment négatif des news (-0.31)",
-        ]
-    else:
-        return [
-            "⚖️ Signaux contradictoires entre modèles",
-            "📊 Prix dans un range serré, pas de tendance claire",
-            "🤖 Confiance ML insuffisante (<60%)",
-        ]
+# NB : les raisons de recommandation sont désormais calculées sur les vraies
+# données par components/recommendation.build_real_reasons (RSI/MACD/ML/NLP réels).
+# L'ancien mock_recommendation_reasons a été retiré.

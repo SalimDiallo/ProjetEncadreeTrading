@@ -200,7 +200,7 @@ def render_equity_curve(equity_df: pd.DataFrame, benchmark_df: pd.DataFrame = No
             line=dict(color="#6b7280", width=2, dash="dash")
         ))
     fig.update_layout(
-        title="📈 Courbe d'équité du portefeuille",
+        title="Courbe d'équité du portefeuille",
         xaxis_title="Date", yaxis_title="Capital ($)",
         template="plotly_white", height=400,
         hovermode="x unified",
@@ -221,7 +221,7 @@ def render_drawdown_chart(equity_df: pd.DataFrame):
         hovertemplate="<b>%{x|%d %b %Y}</b><br>Drawdown: %{y:.2f}%<extra></extra>"
     ))
     fig.update_layout(
-        title="📉 Drawdown",
+        title="Drawdown",
         xaxis_title="Date", yaxis_title="Drawdown (%)",
         template="plotly_white", height=300, showlegend=False
     )

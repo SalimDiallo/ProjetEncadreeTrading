@@ -25,9 +25,9 @@ def with_recent_dates(records: List[Dict], days_spread: int = 14) -> List[Dict]:
 MOCK_TWEETS_TEMPLATE = [
     "BREAKING: OPEC+ agrees to cut production by 1M bbl/day. #OilMarket #OOTT crude oil bullish",
     "WTI crude oil drops below $75 on weak US jobs data. Energy sector selloff.",
-    "Brent crude up 2.5% as Red Sea shipping disruptions worsen. Supply risk premium returns #OOTT",
+    "WTI crude up 2.5% as Red Sea shipping disruptions worsen. Supply risk premium returns #OOTT",
     "US crude inventories rise 4.2M barrels — bearish surprise for oil market",
-    "Goldman Sachs raises Brent crude forecast to $95/barrel by Q3. Bullish on energy",
+    "Goldman Sachs raises WTI crude forecast to $95/barrel by Q3. Bullish on energy",
     "China oil demand recovery slower than expected in Q1. Downward pressure on crude.",
     "Iraq oil exports hit new high as OPEC compliance falters. WTI pressured lower.",
     "Energy stocks outperforming as oil prices stabilize near $80.",
@@ -38,7 +38,7 @@ MOCK_TWEETS_TEMPLATE = [
 MOCK_REDDIT_TEMPLATE = [
     "OPEC+ cuts production again — crude oil prices expected to rise above $90/barrel.",
     "WTI crude down 3% after unexpected build in US oil inventories. Bearish sentiment growing.",
-    "Brent crude oil hits $85 as geopolitical tensions escalate. Energy stocks surging.",
+    "WTI crude oil hits $85 as geopolitical tensions escalate. Energy stocks surging.",
     "Oil demand outlook cut by IEA. Transition to renewables faster than expected.",
     "Saudi Arabia confirms no increase in oil production. OPEC discipline holds.",
     "US shale oil production hits record high. Supply glut fears return.",
@@ -52,7 +52,7 @@ MOCK_EDGAR_TEMPLATE = [
         "source": "edgar_10k_ExxonMobil",
     },
     {
-        "text": "[ITEM 7] Brent crude averaged strong levels; refining margins compressed on refined product oversupply.",
+        "text": "[ITEM 7] WTI crude averaged strong levels; refining margins compressed on refined product oversupply.",
         "source": "edgar_10q_BP",
     },
     {

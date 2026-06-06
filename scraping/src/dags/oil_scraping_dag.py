@@ -19,7 +19,7 @@ default_args = {
 def job_extract_prices():
     """Extraction EIA -> BDD"""
     db = DatabaseClient()
-    for asset in ["WTI", "BRENT"]:
+    for asset in ["WTI"]:
         collector = EIAPriceCollector(asset_key=asset)
         df = collector.fetch()
         if not df.empty:

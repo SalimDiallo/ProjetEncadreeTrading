@@ -140,7 +140,7 @@ def compute_oil_density(tokens: List[str]) -> float:
         return 0.0
 
     oil_terms = {
-        "oil", "crude", "petroleum", "brent", "west_texas_intermediate",
+        "oil", "crude", "petroleum", "wti", "west_texas_intermediate",
         "opec", "opec_organization", "opec_plus", "barrel", "boe",
         "energy", "refinery", "drilling", "offshore", "pipeline",
         "lng", "lpg", "shale", "permian", "upstream", "downstream",
@@ -236,7 +236,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
 
     samples = [
-        "opec cut production wti brent not bullish outlook",
+        "opec cut production wti not bullish outlook",
         "eia report draw bbls inventory not bearish surprise",
         "soaring crude oil prices mooning shale permian ripping",
         "opecplus discipline holds lng exports surging demand strong",

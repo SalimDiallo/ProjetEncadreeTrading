@@ -228,10 +228,10 @@ if __name__ == "__main__":
         corpus = [
             "opec cut production barrel crude bullish",
             "wti crude drops weak demand bearish",
-            "brent crude rallies opec discipline supply tight",
+            "wti crude rallies opec discipline supply tight",
             "eia report draw inventory bullish crude oil",
             "shale production permian growth bearish supply",
-            "goldman sachs raises brent forecast bullish energy",
+            "goldman sachs raises wti forecast bullish energy",
             "china demand recovery slow crude oil bearish",
             "saudi arabia confirms no production increase bullish",
             "us crude inventory build bearish wti",

@@ -278,7 +278,7 @@ if __name__ == "__main__":
         mock_records = [
             {"text": "BREAKING: OPEC+ agrees to cut production by 1M bbl/day! #OOTT #oil @Reuters https://t.co/xyz", "date": "2024-03-15T08:00:00Z", "source": "twitter_mock"},
             {"text": "WTI crude drops below $75 on weak US jobs data... $XOM $CVX bearish energy sector", "date": "2024-03-14T14:30:00Z", "source": "reddit_mock"},
-            {"text": "Goldman Sachs raises Brent forecast to $95/barrel by Q3 2024 bullish energy", "date": "2024-03-13T10:00:00Z", "source": "yahoo_finance"},
+            {"text": "Goldman Sachs raises WTI forecast to $95/barrel by Q3 2024 bullish energy", "date": "2024-03-13T10:00:00Z", "source": "yahoo_finance"},
             {"text": "OPEC discipline holds. Saudi Arabia confirms no production increase. Bullish crude.", "date": "2024-03-11T11:45:00Z", "source": "reuters"},
         ]
         results = run_preprocessing(records=mock_records, save_csv=True)

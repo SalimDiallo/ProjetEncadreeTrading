@@ -275,9 +275,9 @@ if __name__ == "__main__":
     samples = [
         "BREAKING: OPEC+ agrees to cut production by 1M bbl/day! #OOTT #oil @Reuters https://t.co/xyz123",
         "WTI crude drops below $75 on weak US jobs data... Energy sector selloff $XOM $CVX",
-        "Brent crude up 2.5%!!! Red Sea shipping disruptions worsen 🚢⬆️ supply risk premium returns",
+        "WTI crude up 2.5%!!! Red Sea shipping disruptions worsen 🚢⬆️ supply risk premium returns",
         "   oil oil oil  123.45  @mention #crudeoil www.oilprice.com &amp; check this out!!!   ",
-        "Goldman Sachs raises Brent forecast to $95/barrel by Q3 2024 — bullish on energy sector",
+        "Goldman Sachs raises WTI forecast to $95/barrel by Q3 2024 — bullish on energy sector",
     ]
 
     print(f"{'RAW':<80} | {'CLEANED'}")

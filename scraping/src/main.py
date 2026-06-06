@@ -10,7 +10,7 @@ def run_data_pipeline():
     """
     print(" [Data Module] Starting Unified Pipeline...")
 
-    # --- 1. Price Collection (WTI, Brent, etc.) ---
+    # --- 1. Price Collection (WTI) ---
     # Iterating through assets defined in config makes it easy to scale.
     for asset_name in config.ASSETS.keys():
         print(f" [Price] Fetching {asset_name} data...")
