@@ -8,6 +8,17 @@ exposé via un **dashboard Streamlit interactif**.
 
 ---
 
+### 🔄 Nouveautés & Changements (Intégration NLP)
+
+Le pipeline d'analyse de sentiment a été finalisé et connecté au Dashboard Streamlit :
+* **Agrégation Journalière Pondérée** : Nouveau module d'agrégation ([aggregator.py](file:///home/omar/Documents/Programming/Web_scraping/projetTrading_final/ai/nlp/oil_sentiment_pipeline/aggregation/aggregator.py)) pour compiler les sentiments quotidiens des articles selon le score de sentiment, la pertinence (`oil_density`), la confiance du modèle et la pondération des sources.
+* **Classification par Actif** : Distribution automatique des scores de sentiment vers **WTI** et **Brent** via reconnaissance de mots-clés dans les articles.
+* **Calcul de Signaux de Trading NLP** : Génération de signaux `BUY/SELL/HOLD` dynamiques sur le Dashboard basés sur des seuils de sentiment personnalisables et un lissage par moyenne mobile.
+* **Synchronisation Automatique** : Exportation directe des résultats agrégés au format Parquet vers le bus de données partagé (`scraping/src/data/processed/`).
+
+---
+
+
 ## 📁 Structure du Projet
 
 ```
@@ -19,8 +30,16 @@ projetTrading/
 │   │   ├── model_training.ipynb     #    Notebook backtesting (RF, XGBoost)
 │   │   ├── model_trainingV1.ipynb   #    Version 1 du notebook
 │   │   └── indicateurs_techniques.md#    Guide des indicateurs techniques
-│   └── nlp/                         #    Traitement du Langage Naturel
-│       └── run.py                   #    Analyse de sentiment (à venir)
+│   └── nlp/                         # 📰 Traitement du Langage Naturel
+│       ├── run.py                   #    Point d'entrée de la pipeline NLP
+│       ├── pyproject.toml           #    Configuration des dépendances
+│       ├── requirements.txt         #    Dépendances du module NLP
+│       └── oil_sentiment_pipeline/  #    Module de la pipeline de sentiment
+│           ├── main.py              #    Orchestrateur principal
+│           ├── settings.py          #    Configuration YAML du pipeline
+│           ├── paths.py             #    Gestion des chemins
+│           └── aggregation/         #    Agrégation journalière pour le Dashboard
+│               └── aggregator.py    #    Pondération des sentiments et répartition WTI/Brent
 │
 ├── scraping/                        # 🕷️ Collecte de Données
 │   ├── main.ipynb                   #    Notebook de scraping
@@ -75,7 +94,7 @@ projetTrading/
 |-----------|-------------|
 | **Scraping** | Python, requests, BeautifulSoup, yfinance |
 | **ML / Backtesting** | scikit-learn, XGBoost, pandas, numpy |
-| **NLP** | *(à venir — VADER / FinBERT)* |
+| **NLP** | **Python, NLTK, VADER, FinBERT, pyarrow** (avec calcul d'agrégation journalière pondérée et classification d'actifs) |
 | **Visualisation Notebook** | matplotlib, seaborn |
 | **Dashboard Web** | **Streamlit, Plotly** |
 | **Tests** | pytest, pytest-cov |
@@ -129,29 +148,40 @@ pip install -r web/requirements.txt
 
 ## 🎯 Utilisation
 
-### 1️⃣ Récupérer les données
+### 1️⃣ Récupérer les données (Scraping)
 
 ```bash
 cd scraping/src
 python main.py
 ```
 
-Ceci crée les fichiers Parquet dans `scraping/src/data/processed/`.
+Ceci crée les fichiers d'actualités et de prix Parquet bruts dans `scraping/src/data/processed/`.
 
-### 2️⃣ Entraîner les modèles ML (optionnel)
+### 2️⃣ Lancer l'analyse de sentiment (NLP)
 
-Ouvre `ai/ml/model_training.ipynb` dans Jupyter ou VS Code.
+Exécutez le pipeline d'analyse de sentiment pour traiter les articles scrapés, calculer les scores quotidiens pondérés et les exporter pour le dashboard :
 
-### 3️⃣ Lancer le dashboard web
+```bash
+cd ai/nlp
+python run.py
+```
+
+Cette commande génère les fichiers `sentiment_wti.parquet` and `sentiment_brent.parquet` dans le bus de données partagé (`scraping/src/data/processed/`).
+
+### 3️⃣ Entraîner les modèles ML (optionnel)
+
+Ouvre `ai/ml/model_training.ipynb` dans Jupyter ou VS Code pour générer les signaux prédictifs de Machine Learning.
+
+### 4️⃣ Lancer le dashboard web (Streamlit)
 
 ```bash
 cd web
 streamlit run app.py
 ```
 
-Le dashboard s'ouvre sur `http://localhost:8501`.
+Le dashboard s'ouvre sur `http://localhost:8501`. Vous pouvez maintenant sélectionner la stratégie **"Sentiment NLP"** dans le panneau latéral pour générer des signaux de trading dynamiques basés sur l'analyse de sentiment.
 
-### 4️⃣ Lancer les tests
+### 5️⃣ Lancer les tests
 
 ```bash
 cd web
