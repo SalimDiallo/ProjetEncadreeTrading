@@ -45,3 +45,7 @@ def ensure_data_dirs() -> None:
         directory.mkdir(parents=True, exist_ok=True)
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+SHARED_PROCESSED_DIR = PACKAGE_ROOT.parents[2] / "scraping" / "src" / "data" / "processed"
+
