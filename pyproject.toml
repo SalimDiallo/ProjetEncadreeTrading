@@ -1,7 +1,7 @@
 [project]
 name = "projettrading"
 version = "0.1.0"
-description = "Add your description here"
+description = "Plateforme modulaire de backtesting algorithmique — WTI Crude Oil"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -13,4 +13,10 @@ dependencies = [
     "scipy>=1.17.1",
     "seaborn>=0.13.2",
     "xgboost>=3.2.0",
+    # --- Dashboard Web ---
+    "streamlit>=1.30.0",
+    "plotly>=5.18.0",
+    # --- Tests ---
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
 ]

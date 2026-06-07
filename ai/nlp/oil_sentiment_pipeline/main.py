@@ -187,9 +187,30 @@ def run_pipeline(
         logger.error("Erreur modeling : %s", exc)
         sentiment_records = processed_records
 
+    # ──────────────────────────────────────────────────────────────────────
+    # ÉTAPE 5 — Agrégation & Export Dashboard
+    # ──────────────────────────────────────────────────────────────────────
+    logger.info("\n[5/6] AGRÉGATION JOURNALIÈRE & EXPORT PARQUET...")
+    try:
+        from oil_sentiment_pipeline.aggregation.aggregator import aggregate_daily_sentiment
+        from oil_sentiment_pipeline.paths import SHARED_PROCESSED_DIR
+        from oil_sentiment_pipeline.settings import PipelineSettings
+
+        cfg = PipelineSettings.from_yaml()
+        aggregated_data = aggregate_daily_sentiment(sentiment_records, cfg)
+        
+        for asset, df_asset in aggregated_data.items():
+            out_path = SHARED_PROCESSED_DIR / f"sentiment_{asset}.parquet"
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            df_asset.to_parquet(out_path, index=False)
+            logger.info("→ Exporté : %s (%d jours)", out_path, len(df_asset))
+            
+    except Exception as exc:
+        logger.error("Erreur d'agrégation / export dashboard : %s", exc)
+
     logger.info("\n" + "=" * 70)
-    logger.info("PIPELINE TERMINÉ (Mode Sentiment Only) — Prêt pour intégration externe.")
-    logger.info("Fichiers de sentiment disponibles dans : data/sentiment/")
+    logger.info("PIPELINE TERMINÉ — Données exportées pour le Dashboard.")
+    logger.info("Fichiers de sentiment disponibles dans : %s", SHARED_PROCESSED_DIR)
     logger.info("=" * 70)
     return results
 

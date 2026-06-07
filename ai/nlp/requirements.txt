@@ -29,6 +29,7 @@ praw>=7.7.0
 matplotlib>=3.6.0
 seaborn>=0.12.0
 yfinance>=0.2.0
+pyarrow>=24.0.0
 
 # ── ML / Deep Learning (FinBERT) ─────────────────────────────────────────────
 # Optionnel : le pipeline bascule sur le modèle lexical si absent.
